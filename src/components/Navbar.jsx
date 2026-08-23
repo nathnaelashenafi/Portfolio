@@ -17,12 +17,12 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="hidden md:flex text-[1.1rem] text-primary gap-5 font-semibold">
+      <nav className="hidden lg:flex items-center text-primary gap-6 font-semibold text-sm sm:text-base">
         {navLinks.map((link) => (
           <a
             key={link.href}
             href={link.href}
-            className="relative group transition-colors duration-300 hover:text-primary-dark"
+            className="relative group whitespace-nowrap transition-colors duration-300 hover:text-primary-dark"
           >
             {link.label}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -31,7 +31,7 @@ export function Navbar() {
       </nav>
 
       <button
-        className="md:hidden text-primary p-1 hover:text-primary-dark transition-colors"
+        className="lg:hidden text-primary p-1.5 hover:text-primary-dark transition-colors"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
       >
@@ -39,13 +39,13 @@ export function Navbar() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-surface border-b border-border shadow-lg md:hidden animate-slideDown">
-          <nav className="flex flex-col p-4 gap-2">
+        <div className="absolute top-full left-0 right-0 bg-surface border-b border-border shadow-lg lg:hidden max-h-[80vh] overflow-y-auto">
+          <nav className="flex flex-col p-4 gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-primary text-lg font-medium px-4 py-3 rounded-lg hover:bg-primary/10 transition-colors"
+                className="text-primary text-base font-medium px-4 py-3 rounded-lg hover:bg-primary/10 active:bg-primary/20 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

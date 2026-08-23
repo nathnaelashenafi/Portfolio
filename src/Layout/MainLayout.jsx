@@ -1,6 +1,7 @@
 import { Button } from "../components/Button";
 import { Logo } from "../components/Logo";
 import { Navbar } from "../components/Navbar";
+import { Hero } from "../sections/Hero";
 
 export function MainLayout() {
   return (
@@ -20,7 +21,9 @@ export function MainLayout() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6"></main>
+      <main className="max-w-7xl mx-auto px-6">
+        <Hero />
+      </main>
     </>
   );
 }

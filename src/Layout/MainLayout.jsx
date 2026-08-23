@@ -5,7 +5,7 @@ import { Navbar } from "../components/Navbar";
 export function MainLayout() {
   return (
     <>
-      <header className="flex justify-between items-center py-4 px-6 border-b border-border bg-surface sticky top-0 z-50">
+      <header className="flex justify-between items-center py-4 px-6 border-b border-border bg-surface/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="flex gap-4 items-center">
           <Logo />
           <span className="text-xl text-primary-dark font-medium hidden sm:block">
@@ -20,9 +20,7 @@ export function MainLayout() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6">
-        {/* Portfolio sections will go here */}
-      </main>
+      <main className="max-w-7xl mx-auto px-6"></main>
     </>
   );
 }

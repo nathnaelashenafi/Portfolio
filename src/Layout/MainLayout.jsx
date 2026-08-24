@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 import { About } from "../sections/About";
 import { Hero } from "../sections/Hero";
 import { Journey } from "../sections/Journey";
+import { Projects } from "../sections/Projects";
 import { Skills } from "../sections/Skills";
 
 export function MainLayout() {
@@ -29,6 +30,7 @@ export function MainLayout() {
         <About />
         <Journey />
         <Skills />
+        <Projects />
       </main>
     </>
   );

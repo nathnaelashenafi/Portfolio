@@ -36,7 +36,10 @@ export function Projects() {
   ];
 
   return (
-    <section className="px-6 md:px-12 lg:px-20 py-16 md:py-24 bg-background">
+    <section
+      id="projects"
+      className="px-6 md:px-12 lg:px-20 py-16 md:py-24 bg-background"
+    >
       <div className="max-w-7xl mx-auto">
         <span className="text-primary text-sm sm:text-base font-medium tracking-wider uppercase">
           My Projects

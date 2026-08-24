@@ -36,14 +36,14 @@ export function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={social.label}
-          className="w-10 h-10 flex items-center justify-center rounded-full
+          className="w-12 h-12 flex items-center justify-center rounded-full
            bg-surface border border-border hover:border-primary hover:bg-primary/5 
            transition-all duration-200 hover:scale-110 hover:shadow-md group"
         >
           <img
             src={social.icon}
             alt={social.label}
-            className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity duration-200"
+            className="w-10 h-10 opacity-70 group-hover:opacity-100 transition-opacity duration-200"
           />
         </a>
       ))}

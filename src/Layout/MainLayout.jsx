@@ -3,6 +3,7 @@ import { Logo } from "../components/Logo";
 import { Navbar } from "../components/Navbar";
 import { About } from "../sections/About";
 import { Hero } from "../sections/Hero";
+import { Journey } from "../sections/Journey";
 
 export function MainLayout() {
   return (
@@ -25,6 +26,7 @@ export function MainLayout() {
       <main className="max-w-7xl mx-auto px-6">
         <Hero />
         <About />
+        <Journey />
       </main>
     </>
   );

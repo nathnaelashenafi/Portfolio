@@ -8,6 +8,8 @@ import { Projects } from "../sections/Projects";
 import { Skills } from "../sections/Skills";
 import { Certificates } from "../sections/Certificates";
 import { Experience } from "../sections/Experience";
+import { Contact } from "../sections/Contact";
+import { Footer } from "../sections/Footer";
 export function MainLayout() {
   return (
     <>
@@ -34,6 +36,8 @@ export function MainLayout() {
         <Projects />
         <Certificates />
         <Experience />
+        <Contact />
+        <Footer />
       </main>
     </>
   );

@@ -7,6 +7,7 @@ import { Journey } from "../sections/Journey";
 import { Projects } from "../sections/Projects";
 import { Skills } from "../sections/Skills";
 import { Certificates } from "../sections/Certificates";
+import { Experience } from "../sections/Experience";
 export function MainLayout() {
   return (
     <>
@@ -32,6 +33,7 @@ export function MainLayout() {
         <Skills />
         <Projects />
         <Certificates />
+        <Experience />
       </main>
     </>
   );

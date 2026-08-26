@@ -6,7 +6,7 @@ import { Hero } from "../sections/Hero";
 import { Journey } from "../sections/Journey";
 import { Projects } from "../sections/Projects";
 import { Skills } from "../sections/Skills";
-
+import { Certificates } from "../sections/Certificates";
 export function MainLayout() {
   return (
     <>
@@ -31,6 +31,7 @@ export function MainLayout() {
         <Journey />
         <Skills />
         <Projects />
+        <Certificates />
       </main>
     </>
   );

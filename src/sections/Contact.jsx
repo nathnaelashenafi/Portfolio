@@ -58,7 +58,10 @@ export function Contact() {
   };
 
   return (
-    <section className="px-6 md:px-12 lg:px-20 py-16 md:py-24 bg-background">
+    <section
+      id="contact"
+      className="px-6 md:px-12 lg:px-20 py-16 md:py-24 bg-background"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="max-w-2xl mb-10">
           <span className="text-primary text-sm font-medium tracking-wide">

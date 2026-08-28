@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nathnaelsportfolio.netlify.app/sitemap.xml

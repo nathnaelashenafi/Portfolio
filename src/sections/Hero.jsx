@@ -32,13 +32,17 @@ export function Hero() {
               />
             </button>
 
-            <button className="group flex items-center gap-2 border-2 border-primary text-primary text-base sm:text-lg font-medium px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <a
+              href="/resume.pdf"
+              download="Nathnael-Ashenafi-Resume"
+              className="group flex items-center gap-2 border-2 border-primary text-primary text-base sm:text-lg font-medium px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
               Download Resume
               <Download
                 className="group-hover:-translate-y-0.5 transition-transform duration-300"
                 size={20}
               />
-            </button>
+            </a>
           </div>
           <div className="flex items-center gap-4 mt-8 -ml-5 sm:ml-0">
             <span className="text-primary-dark text-lg font-medium hidden sm:block">

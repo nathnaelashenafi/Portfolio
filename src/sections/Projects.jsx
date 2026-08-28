@@ -6,7 +6,7 @@ export function Projects() {
     {
       label: "NexaAI",
       type: "Internship Practice",
-      live: "https://nexaai.netlify.app",
+      live: "https://nexaai-proj.netlify.app",
       github: "https://github.com/nathnaelashenafi/nexa-ai.git",
       technologies: ["HTML", "CSS", "JavaScript"],
       image: "/images/projects/nexaai.webp",
@@ -16,7 +16,7 @@ export function Projects() {
     {
       label: "DevFlow",
       type: "Internship Practice",
-      live: "https://devflow.netlify.app",
+      live: "https://natdevflow.netlify.app",
       github: "https://github.com/nathnaelashenafi/devflow.git",
       technologies: ["React", "HTML", "CSS", "JavaScript"],
       image: "/images/projects/preview.png",
@@ -26,7 +26,7 @@ export function Projects() {
     {
       label: "Weather App",
       type: "Practice Project",
-      live: "https://weather-app.netlify.app",
+      live: "https://natweather.netlify.app",
       github: "https://github.com/nathnaelashenafi/weather-app.git",
       technologies: ["React", "CSS", "JavaScript", "API"],
       image: "/images/projects/weatherapp.webp",

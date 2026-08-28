@@ -24,13 +24,16 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4 mt-6">
-            <button className="group flex items-center gap-2 bg-primary text-white text-base sm:text-lg font-medium px-6 py-3 rounded-lg hover:bg-primary-dark transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <a
+              href="#projects"
+              className="group flex items-center gap-2 bg-primary text-white text-base sm:text-lg font-medium px-6 py-3 rounded-lg hover:bg-primary-dark transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
               View my work
               <ArrowRight
                 className="group-hover:translate-x-1 transition-transform duration-300"
                 size={20}
               />
-            </button>
+            </a>
 
             <a
               href="/resume.pdf"

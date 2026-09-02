@@ -4,19 +4,19 @@ export function Journey() {
   const journey = [
     {
       icon: BookOpen,
-      year: "2022",
+      year: "2024",
       label: "High School",
       description: "Graduated from Miraf Academy",
     },
     {
       icon: GraduationCap,
-      year: "2023",
+      year: "2024",
       label: "University",
       description: "Started BSc in Computer Science at Unity University",
     },
     {
       icon: Code2,
-      year: "2024",
+      year: "2025",
       label: "Web Development",
       description: "Learned HTML, CSS, JavaScript and built many projects",
     },

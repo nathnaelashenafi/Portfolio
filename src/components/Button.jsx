@@ -1,20 +1,9 @@
 import { Send } from "lucide-react";
 
 export function Button() {
-  const handleContactClick = (e) => {
-    e.preventDefault();
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
-
   return (
     <div className="flex items-center gap-3">
-      <a href="#contact" onClick={handleContactClick}>
+      <a href="#contact">
         <button className="flex items-center gap-2 bg-primary text-white text-sm sm:text-base font-medium px-4 sm:px-5 py-2.5 rounded-lg hover:bg-primary-dark hover:scale-105 hover:shadow-md transition-all duration-300">
           Let's Talk
           <Send

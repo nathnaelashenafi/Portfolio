@@ -16,22 +16,7 @@ export function Navbar() {
     { href: "#contact", label: "Contact" },
   ];
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    const sectionId = href.replace("#", "");
-    const element = document.getElementById(sectionId);
-
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-
-      setIsOpen(false);
-      setActiveSection(sectionId);
-    }
-  };
-
+  // Update active section on scroll
   useEffect(() => {
     const sections = navLinks.map((link) => link.href.replace("#", ""));
 
@@ -56,10 +41,14 @@ export function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    handleScroll(); // Set initial active section
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleMobileLinkClick = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -72,7 +61,6 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
               className={`relative group whitespace-nowrap transition-colors duration-300 ${
                 isActive
                   ? "text-primary-dark"
@@ -99,7 +87,7 @@ export function Navbar() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-surface border-b border-border shadow-lg lg:hidden max-h-[80vh] overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 bg-surface border-b border-border shadow-lg lg:hidden max-h-[80vh] overflow-y-auto animate-slideDown">
           <nav className="flex flex-col p-4 gap-1">
             {navLinks.map((link) => {
               const sectionId = link.href.replace("#", "");
@@ -109,7 +97,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={handleMobileLinkClick}
                   className={`text-base font-medium px-4 py-3 rounded-lg transition-colors ${
                     isActive
                       ? "bg-primary/10 text-primary-dark"

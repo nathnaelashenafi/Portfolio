@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import htmlIcon from "../assets/skills/html5.svg";
 import cssIcon from "../assets/skills/css3.svg";
 import jsIcon from "../assets/skills/javascript.svg";
@@ -14,12 +15,15 @@ import figmaIcon from "../assets/skills/figma.svg";
 
 export function Skills() {
   const [selectedSkill, setSelectedSkill] = useState(null);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+
   const allSkills = [
     {
       name: "HTML",
       level: "Advanced",
       details:
-        "I’m comfortable building clean, semantic pages with forms, responsive layouts, accessibility, and basic SEO in mind.",
+        "I'm comfortable building clean, semantic pages with forms, responsive layouts, accessibility, and basic SEO in mind.",
       icon: htmlIcon,
     },
     {
@@ -61,7 +65,7 @@ export function Skills() {
       name: "Google Workspace",
       level: "Advanced",
       details:
-        "I’m comfortable working with Docs, Sheets, Slides, Drive, Gmail, Calendar, and Forms for everyday productivity.",
+        "I'm comfortable working with Docs, Sheets, Slides, Drive, Gmail, Calendar, and Forms for everyday productivity.",
       icon: googleIcon,
     },
     {
@@ -75,7 +79,7 @@ export function Skills() {
       name: "SQL",
       level: "Beginner",
       details:
-        "I’m building my foundation in SQL and currently work with queries, filtering, sorting, CRUD operations, and basic joins.",
+        "I'm building my foundation in SQL and currently work with queries, filtering, sorting, CRUD operations, and basic joins.",
       icon: sqlIcon,
     },
     {
@@ -89,7 +93,7 @@ export function Skills() {
       name: "Power BI",
       level: "Beginner",
       details:
-        "I’m learning Power BI and exploring how to turn data into useful dashboards, reports, and visual insights.",
+        "I'm learning Power BI and exploring how to turn data into useful dashboards, reports, and visual insights.",
       icon: powerIcon,
     },
     {
@@ -115,49 +119,80 @@ export function Skills() {
 
   return (
     <section
+      ref={sectionRef}
       id="skills"
       className="px-5 sm:px-6 md:px-12 lg:px-20 py-16 sm:py-20 md:py-24 bg-background"
     >
       <div className="max-w-7xl mx-auto">
         <div className="max-w-2xl mb-10 md:mb-12">
-          <span className="text-primary text-sm sm:text-base font-medium tracking-wider uppercase">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5 }}
+            className="text-primary text-sm sm:text-base font-medium tracking-wider uppercase"
+          >
             My Skills
-          </span>
+          </motion.span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-semibold text-primary-dark leading-tight mt-2 mb-3">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-serif font-semibold text-primary-dark leading-tight mt-2 mb-3"
+          >
             What I work with
-          </h2>
+          </motion.h2>
 
-          <p className="text-muted text-sm sm:text-base leading-relaxed max-w-xl">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-muted text-sm sm:text-base leading-relaxed max-w-xl"
+          >
             A mix of technologies and tools I use while building projects and
             improving my skills.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4"
+        >
           {allSkills.map((skill, index) => {
             const isOpen = selectedSkill === index;
 
             return (
-              <div
+              <motion.div
                 key={skill.name}
+                initial={{ opacity: 0, y: 30 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                }
+                transition={{ duration: 0.4, delay: 0.1 * (index % 6) + 0.3 }}
                 className="group relative"
                 onMouseEnter={() => setSelectedSkill(index)}
                 onMouseLeave={() => setSelectedSkill(null)}
               >
-                <button
+                <motion.button
                   type="button"
+                  whileHover={{ y: -4 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setSelectedSkill(isOpen ? null : index)}
-                  className="w-full text-left p-4 sm:p-5 bg-surface rounded-xl border border-border hover:border-primary/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="w-full text-left p-4 sm:p-5 bg-surface rounded-xl border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center mb-3">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center mb-3"
+                    >
                       <img
                         src={skill.icon}
                         alt={skill.name}
-                        className="w-9 h-9 sm:w-10 sm:h-10 object-contain group-hover:scale-110 transition-transform duration-300"
+                        className="w-9 h-9 sm:w-10 sm:h-10 object-contain"
                       />
-                    </div>
+                    </motion.div>
 
                     <span className="text-primary-dark font-medium text-xs sm:text-sm">
                       {skill.name}
@@ -171,15 +206,18 @@ export function Skills() {
                       {skill.level}
                     </span>
                   </div>
-                </button>
+                </motion.button>
 
-                <div
-                  className={`hidden md:block absolute z-30 top-1/2 -translate-y-1/2 w-64 transition-all duration-200 ${
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{
+                    opacity: isOpen ? 1 : 0,
+                    scale: isOpen ? 1 : 0.9,
+                    visibility: isOpen ? "visible" : "hidden",
+                  }}
+                  transition={{ duration: 0.2 }}
+                  className={`hidden md:block absolute z-30 top-1/2 -translate-y-1/2 w-64 ${
                     index % 6 < 3 ? "left-full ml-3" : "right-full mr-3"
-                  } ${
-                    isOpen
-                      ? "opacity-100 visible translate-x-0"
-                      : "opacity-0 invisible pointer-events-none"
                   }`}
                 >
                   <div className="relative bg-surface border border-border rounded-xl p-4 shadow-xl">
@@ -217,41 +255,48 @@ export function Skills() {
                       {skill.details}
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
-                {isOpen && (
-                  <div className="md:hidden mt-2 bg-surface border border-border rounded-xl p-4 shadow-md animate-slideDown">
-                    <div className="flex items-center gap-3 mb-3">
-                      <img
-                        src={skill.icon}
-                        alt=""
-                        className="w-8 h-8 object-contain"
-                      />
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{
+                    opacity: isOpen ? 1 : 0,
+                    y: isOpen ? 0 : -10,
+                    visibility: isOpen ? "visible" : "hidden",
+                  }}
+                  transition={{ duration: 0.2 }}
+                  className="md:hidden mt-2 bg-surface border border-border rounded-xl p-4 shadow-md"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <img
+                      src={skill.icon}
+                      alt=""
+                      className="w-8 h-8 object-contain"
+                    />
 
-                      <div>
-                        <h3 className="text-sm font-semibold text-primary-dark">
-                          {skill.name}
-                        </h3>
+                    <div>
+                      <h3 className="text-sm font-semibold text-primary-dark">
+                        {skill.name}
+                      </h3>
 
-                        <span
-                          className={`inline-block mt-1 text-[10px] px-2 py-0.5 rounded-full border ${getLevelStyle(
-                            skill.level,
-                          )}`}
-                        >
-                          {skill.level}
-                        </span>
-                      </div>
+                      <span
+                        className={`inline-block mt-1 text-[10px] px-2 py-0.5 rounded-full border ${getLevelStyle(
+                          skill.level,
+                        )}`}
+                      >
+                        {skill.level}
+                      </span>
                     </div>
-
-                    <p className="text-muted text-xs leading-5">
-                      {skill.details}
-                    </p>
                   </div>
-                )}
-              </div>
+
+                  <p className="text-muted text-xs leading-5">
+                    {skill.details}
+                  </p>
+                </motion.div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

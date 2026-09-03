@@ -22,13 +22,9 @@ export function Navbar() {
     const element = document.getElementById(sectionId);
 
     if (element) {
-      const offset = 80; // Height of fixed header
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
+      element.scrollIntoView({
         behavior: "smooth",
+        block: "start",
       });
 
       setIsOpen(false);
@@ -36,7 +32,6 @@ export function Navbar() {
     }
   };
 
-  // Update active section on scroll
   useEffect(() => {
     const sections = navLinks.map((link) => link.href.replace("#", ""));
 
@@ -61,6 +56,8 @@ export function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -102,7 +99,7 @@ export function Navbar() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-surface border-b border-border shadow-lg lg:hidden max-h-[80vh] overflow-y-auto animate-slideDown">
+        <div className="absolute top-full left-0 right-0 bg-surface border-b border-border shadow-lg lg:hidden max-h-[80vh] overflow-y-auto">
           <nav className="flex flex-col p-4 gap-1">
             {navLinks.map((link) => {
               const sectionId = link.href.replace("#", "");

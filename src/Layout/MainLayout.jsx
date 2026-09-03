@@ -29,31 +29,15 @@ export function MainLayout() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6">
-        <section id="hero">
-          <Hero />
-        </section>
-        <section id="about">
-          <About />
-        </section>
-        <section id="journey">
-          <Journey />
-        </section>
-        <section id="skills">
-          <Skills />
-        </section>
-        <section id="projects">
-          <Projects />
-        </section>
-        <section id="certificates">
-          <Certificates />
-        </section>
-        <section id="experience">
-          <Experience />
-        </section>
-        <section id="contact">
-          <Contact />
-        </section>
+      <main>
+        <Hero />
+        <About />
+        <Journey />
+        <Skills />
+        <Projects />
+        <Certificates />
+        <Experience />
+        <Contact />
         <Footer />
       </main>
     </>

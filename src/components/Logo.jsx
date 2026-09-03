@@ -3,13 +3,9 @@ export function Logo() {
     e.preventDefault();
     const element = document.getElementById("hero");
     if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
+      element.scrollIntoView({
         behavior: "smooth",
+        block: "start",
       });
     }
   };

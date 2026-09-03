@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
   const navLinks = [
     { href: "#hero", label: "Home" },
@@ -15,19 +16,81 @@ export function Navbar() {
     { href: "#contact", label: "Contact" },
   ];
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const sectionId = href.replace("#", "");
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      const offset = 80; // Height of fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      setIsOpen(false);
+      setActiveSection(sectionId);
+    }
+  };
+
+  // Update active section on scroll
+  useEffect(() => {
+    const sections = navLinks.map((link) => link.href.replace("#", ""));
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <nav className="hidden lg:flex items-center text-primary gap-6 font-semibold text-sm sm:text-base">
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className="relative group whitespace-nowrap transition-colors duration-300 hover:text-primary-dark"
-          >
-            {link.label}
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-          </a>
-        ))}
+        {navLinks.map((link) => {
+          const sectionId = link.href.replace("#", "");
+          const isActive = activeSection === sectionId;
+
+          return (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className={`relative group whitespace-nowrap transition-colors duration-300 ${
+                isActive
+                  ? "text-primary-dark"
+                  : "text-primary hover:text-primary-dark"
+              }`}
+            >
+              {link.label}
+              <span
+                className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                  isActive ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              ></span>
+            </a>
+          );
+        })}
       </nav>
 
       <button
@@ -39,18 +102,27 @@ export function Navbar() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-surface border-b border-border shadow-lg lg:hidden max-h-[80vh] overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 bg-surface border-b border-border shadow-lg lg:hidden max-h-[80vh] overflow-y-auto animate-slideDown">
           <nav className="flex flex-col p-4 gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-primary text-base font-medium px-4 py-3 rounded-lg hover:bg-primary/10 active:bg-primary/20 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace("#", "");
+              const isActive = activeSection === sectionId;
+
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`text-base font-medium px-4 py-3 rounded-lg transition-colors ${
+                    isActive
+                      ? "bg-primary/10 text-primary-dark"
+                      : "text-primary hover:bg-primary/10 active:bg-primary/20"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
         </div>
       )}

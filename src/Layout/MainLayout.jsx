@@ -10,6 +10,7 @@ import { Certificates } from "../sections/Certificates";
 import { Experience } from "../sections/Experience";
 import { Contact } from "../sections/Contact";
 import { Footer } from "../sections/Footer";
+
 export function MainLayout() {
   return (
     <>
@@ -29,14 +30,30 @@ export function MainLayout() {
       </header>
 
       <main className="max-w-7xl mx-auto px-6">
-        <Hero />
-        <About />
-        <Journey />
-        <Skills />
-        <Projects />
-        <Certificates />
-        <Experience />
-        <Contact />
+        <section id="hero">
+          <Hero />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="journey">
+          <Journey />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="certificates">
+          <Certificates />
+        </section>
+        <section id="experience">
+          <Experience />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
         <Footer />
       </main>
     </>

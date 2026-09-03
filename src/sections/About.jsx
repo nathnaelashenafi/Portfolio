@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Code, Goal, GraduationCap, Heart, User, X } from "lucide-react";
 
 export function About() {
   const [showMore, setShowMore] = useState(false);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
   const highlights = [
     {
@@ -29,42 +32,64 @@ export function About() {
 
   return (
     <section
+      ref={sectionRef}
       id="about"
       className="min-h-screen flex items-center px-6 md:px-12 lg:px-20 py-16"
     >
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
         <div className="lg:col-span-3">
-          <span className="text-primary text-sm sm:text-base font-medium tracking-wider uppercase">
+          <motion.span
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6 }}
+            className="text-primary text-sm sm:text-base font-medium tracking-wider uppercase"
+          >
             About Me
-          </span>
+          </motion.span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-primary-dark leading-tight mt-1">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-primary-dark leading-tight mt-1"
+          >
             Get to know me
-          </h2>
+          </motion.h2>
 
-          <p className="text-base sm:text-lg text-muted max-w-xl mt-4 leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-base sm:text-lg text-muted max-w-xl mt-4 leading-relaxed"
+          >
             I'm a Computer Science student who enjoys building things, learning
             how technology works, and turning ideas into something useful. I'm
             especially interested in web development, data, and the
             possibilities of AI.
-          </p>
+          </motion.p>
 
-          <button
+          <motion.button
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setShowMore(true)}
-            className="group inline-flex items-center gap-2 mt-6 border-2 border-primary text-primary text-base sm:text-lg font-medium px-6 py-3 rounded-lg hover:bg-primary hover:text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
+            className="group inline-flex items-center gap-2 mt-6 border-2 border-primary text-primary text-base sm:text-lg font-medium px-6 py-3 rounded-lg hover:bg-primary hover:text-white hover:shadow-lg transition-all duration-300"
           >
             More About me
-            <User
-              size={20}
-              className="group-hover:translate-x-0.5 transition-transform duration-300"
-            />
-          </button>
+            <User size={20} />
+          </motion.button>
         </div>
 
         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
           {highlights.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+              whileHover={{ scale: 1.03 }}
               className="group flex items-start gap-4 p-5 rounded-xl border border-border hover:border-primary/30 hover:bg-primary/5 hover:shadow-md transition-all duration-300"
             >
               <div className="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 shrink-0">
@@ -80,17 +105,26 @@ export function About() {
                   {item.value}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
+      {/* Modal with animation */}
       {showMore && (
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
           className="fixed inset-0 z-50 flex items-center justify-center px-6 bg-black/50 backdrop-blur-sm"
           onClick={() => setShowMore(false)}
         >
-          <div
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.8, opacity: 0, y: 20 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
             className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white rounded-2xl p-6 sm:p-8 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
@@ -145,8 +179,8 @@ export function About() {
             >
               Close
             </button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
     </section>
   );

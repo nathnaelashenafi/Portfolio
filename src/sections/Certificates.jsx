@@ -13,7 +13,7 @@ export function Certificates() {
       title: "Virtual Assistant",
       issuer: "ALX",
       issued: "12 May 2026",
-      image: "/images/certeficates/Virtual-Assistant.jpg",
+      image: `${import.meta.env.BASE_URL}images/certeficates/Virtual-Assistant.jpg`,
     },
   ];
 
@@ -68,6 +68,7 @@ export function Certificates() {
                   className="w-full h-full object-cover object-left"
                 />
               </motion.div>
+
               <div className="w-2/3 p-4 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -75,14 +76,18 @@ export function Certificates() {
                       {cert.name}
                     </span>
                   </div>
+
                   <h3 className="text-primary-dark font-semibold text-sm leading-tight">
                     {cert.title}
                   </h3>
+
                   <p className="text-muted text-xs mt-1">{cert.issuer}</p>
+
                   <p className="text-muted text-xs mt-1">
                     Issued: {cert.issued}
                   </p>
                 </div>
+
                 <motion.button
                   whileHover={{ scale: 1.05, x: 4 }}
                   whileTap={{ scale: 0.95 }}
@@ -97,7 +102,6 @@ export function Certificates() {
         </motion.div>
       </div>
 
-      {/* Modal */}
       {selectedCert && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -146,6 +150,7 @@ export function Certificates() {
               <h3 className="text-xl font-serif font-semibold text-primary-dark">
                 {selectedCert.title}
               </h3>
+
               <p className="text-muted text-sm">
                 {selectedCert.issuer} · Issued: {selectedCert.issued}
               </p>

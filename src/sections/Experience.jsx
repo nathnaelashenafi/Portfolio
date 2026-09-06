@@ -187,7 +187,6 @@ export function Experience() {
         </motion.div>
       </div>
 
-      {/* Modal */}
       {showLetter && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -222,7 +221,7 @@ export function Experience() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              src="/images/certeficates/codveda.jpg"
+              src={`${import.meta.env.BASE_URL}images/certeficates/codveda.jpg`}
               alt="Codveda Technologies offer letter"
               className="w-full h-auto"
             />

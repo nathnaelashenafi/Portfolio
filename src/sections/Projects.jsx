@@ -14,7 +14,7 @@ export function Projects() {
       live: "https://nexaai-proj.netlify.app",
       github: "https://github.com/nathnaelashenafi/nexa-ai.git",
       technologies: ["HTML", "CSS", "JavaScript"],
-      image: "/images/projects/nexaai.webp",
+      image: `${import.meta.env.BASE_URL}images/projects/nexaai.webp`,
       description:
         "A modern tech landing page for an AI company. Built with clean UI and responsive design.",
     },
@@ -24,7 +24,7 @@ export function Projects() {
       live: "https://natdevflow.netlify.app",
       github: "https://github.com/nathnaelashenafi/devflow.git",
       technologies: ["React", "HTML", "CSS", "JavaScript"],
-      image: "/images/projects/preview.png",
+      image: `${import.meta.env.BASE_URL}images/projects/preview.png`,
       description:
         "A developer portfolio template with project showcase and contact form. Built during internship.",
     },
@@ -34,7 +34,7 @@ export function Projects() {
       live: "https://natweather.netlify.app",
       github: "https://github.com/nathnaelashenafi/weather-app.git",
       technologies: ["React", "CSS", "JavaScript", "API"],
-      image: "/images/projects/weatherapp.webp",
+      image: `${import.meta.env.BASE_URL}images/projects/weatherapp.webp`,
       description:
         "A weather app that shows real-time weather data using API. Practice project with React.",
     },
@@ -161,6 +161,7 @@ export function Projects() {
                   >
                     <Globe size={16} /> Live Demo
                   </motion.a>
+
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

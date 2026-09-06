@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nathnaelsportfolio.netlify.app/sitemap.xml
+Sitemap: https://nathnaelashenafi.github.io/Portfolio/sitemap.xml

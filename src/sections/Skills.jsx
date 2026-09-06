@@ -217,7 +217,13 @@ export function Skills() {
                   }}
                   transition={{ duration: 0.2 }}
                   className={`hidden md:block absolute z-30 top-1/2 -translate-y-1/2 w-64 ${
-                    index % 6 < 3 ? "left-full ml-3" : "right-full mr-3"
+                    index % 6 < 3
+                      ? "lg:left-full lg:ml-3"
+                      : "lg:right-full lg:mr-3"
+                  } ${
+                    index % 4 < 2
+                      ? "md:left-full md:ml-3"
+                      : "md:right-full md:mr-3"
                   }`}
                 >
                   <div className="relative bg-surface border border-border rounded-xl p-4 shadow-xl">

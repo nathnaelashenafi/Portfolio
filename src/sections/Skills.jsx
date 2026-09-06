@@ -170,7 +170,10 @@ export function Skills() {
                 animate={
                   isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
                 }
-                transition={{ duration: 0.4, delay: 0.1 * (index % 6) + 0.3 }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.1 * (index % 6) + 0.3,
+                }}
                 className="group relative"
                 onMouseEnter={() => setSelectedSkill(index)}
                 onMouseLeave={() => setSelectedSkill(null)}
@@ -271,7 +274,7 @@ export function Skills() {
                     visibility: isOpen ? "visible" : "hidden",
                   }}
                   transition={{ duration: 0.2 }}
-                  className="md:hidden mt-2 bg-surface border border-border rounded-xl p-4 shadow-md"
+                  className="md:hidden absolute z-30 top-full left-0 right-0 mt-2 bg-surface border border-border rounded-xl p-4 shadow-md"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <img

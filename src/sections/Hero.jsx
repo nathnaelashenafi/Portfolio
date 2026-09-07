@@ -71,7 +71,7 @@ export function Hero() {
 
             <a
               href="/resume.pdf"
-              download="Nathnael-Ashenafi-Resume"
+              download="Nathnael-Ashenafi's-Resume"
               className="group flex items-center gap-2 border-2 border-primary text-primary text-base sm:text-lg font-medium px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               Download Resume

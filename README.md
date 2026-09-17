@@ -2,7 +2,7 @@
 
 My personal portfolio built with React and Tailwind. Showcases my projects, skills, certificates, and experience as a Computer Science student and developer.
 
-![Portfolio Preview](./public/images/preview.png)
+
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)

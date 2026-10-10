@@ -1,6 +1,4 @@
-Here's the redesigned and crafted README. I've kept your forest-green palette, tightened the typography, added subtle visual structure, and made it feel like a polished personal manifesto rather than a resume dump.
 
-```markdown
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!--                    NATHNAEL ASHENAFI                            -->
 <!--            Frontend Developer · CS Student · Builder            -->
@@ -218,6 +216,5 @@ I'm open to connecting with fellow developers, learning from experienced enginee
 <sub>🌍 Nathnael Ashenafi · Addis Ababa, Ethiopia</sub>
 
 </div>
-```---
 
 

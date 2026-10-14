@@ -172,7 +172,7 @@ Improving React fundamentals, reusable components, responsive layouts, state man
 </details><details>
 <summary><b>🗄️ Data Engineering</b></summary>
 <br/>
-Studying data engineering through ALX and developing my understanding of data systems and related technical foundations.
+Studying data engineering through ALX and developing my understanding of data systems and related technical foundations too.
 </details><details>
 <summary><b>🔧 Developer Workflow</b></summary>
 <br/>
